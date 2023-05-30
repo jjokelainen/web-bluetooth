@@ -7,10 +7,15 @@
     <title>Web bluetooth testing</title>
 </head>
 <body>
+    <button onclick="requestDevices()">Request devices</button>
     <script>
-        navigator.bluetooth.requestDevice({ filters: [{ services: ['battery_service'] }] })
+        function requestDevices()
+        {
+            navigator.bluetooth.requestDevice({ acceptAllDevices:true})
         .then(device => { console.log(device) })
         .catch(error => { console.error(error); });
+        }
+
     </script>
 </body>
 </html>
